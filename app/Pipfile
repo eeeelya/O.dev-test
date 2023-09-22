@@ -8,6 +8,10 @@ django = "*"
 gunicorn = "*"
 djangorestframework = "*"
 psycopg2-binary = "*"
+web3 = "*"
+pytest = "*"
+celery = "*"
+ruff = "*"
 
 [dev-packages]
 

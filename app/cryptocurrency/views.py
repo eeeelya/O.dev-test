@@ -33,3 +33,9 @@ class WalletViewSet(viewsets.GenericViewSet):
 
         return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
+    def list(self, request):
+        serializer_class = self.get_serializer_class()
+        serializer = serializer_class(instance=self.queryset, many=True)
+
+        return Response(data=serializer.data, status=status.HTTP_404_NOT_FOUND)
+

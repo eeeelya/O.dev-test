@@ -11,6 +11,9 @@ psycopg2-binary = "*"
 web3 = "*"
 pytest = "*"
 drf-spectacular = "*"
+factory-boy = "*"
+pytest-django = "*"
+pytest-mock = "*"
 
 [dev-packages]
 ruff = "*"

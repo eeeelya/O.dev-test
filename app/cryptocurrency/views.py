@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema_view, extend_schema
 from eth_account import Account
 from rest_framework import status, viewsets
 from rest_framework.response import Response
@@ -6,6 +7,18 @@ from cryptocurrency import serializers
 from cryptocurrency.models import Wallet
 
 
+@extend_schema_view(
+    list=extend_schema(
+        summary="Получить список всех кошельков.",
+        description="Получить список всех кошельков.",
+        tags=["Кошельки"],
+    ),
+    create=extend_schema(
+        summary="Создать кошелек.",
+        description="Создать кошелек.",
+        tags=["Кошельки"],
+    ),
+)
 class WalletViewSet(viewsets.GenericViewSet):
     queryset = Wallet.objects.all()
 
@@ -37,5 +50,5 @@ class WalletViewSet(viewsets.GenericViewSet):
         serializer_class = self.get_serializer_class()
         serializer = serializer_class(instance=self.queryset, many=True)
 
-        return Response(data=serializer.data, status=status.HTTP_404_NOT_FOUND)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
 

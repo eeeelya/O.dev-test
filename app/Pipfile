@@ -10,10 +10,10 @@ djangorestframework = "*"
 psycopg2-binary = "*"
 web3 = "*"
 pytest = "*"
-celery = "*"
-ruff = "*"
+drf-spectacular = "*"
 
 [dev-packages]
+ruff = "*"
 
 [requires]
 python_version = "3.10"

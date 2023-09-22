@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from web3 import Web3
@@ -28,7 +30,7 @@ class RetrieveWalletSerializer(serializers.ModelSerializer):
 class ListWalletSerializer(serializers.ModelSerializer):
     balance = serializers.SerializerMethodField()
 
-    def get_balance(self, obj):
+    def get_balance(self, obj) -> int | Decimal:
         w3 = Web3(Web3.HTTPProvider(f"https://mainnet.infura.io/v3/{INFRUA_ID}"))
 
         if not w3.is_connected():

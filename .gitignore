@@ -5,3 +5,4 @@
 *pycache*
 venv
 *.log
+*cache
